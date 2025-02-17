@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Raad het Nummer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/stijl.css">
+</head>
+
+
+
+<body>
+
+<div id="game-container" class="container">
+    <h2 class="text-primary">Raad het Nummer (1 - 100)</h2>
+
+    <div class="form-group">
+        <input type="number" id="guess" class="form-control input-lg" placeholder="Voer een nummer in" min="1" max="100">
+    </div>
+
+    <button class="btn btn-primary btn-lg btn-block" onclick="checkGuess()">Gok!</button>
+    <p id="feedback" class="text-info lead" style="margin-top: 20px;"></p>
+
+    <a href="set.html" class="btn btn-link">Terug naar nummer kiezen</a>
+</div>
+
+<!-- Bootstrap 3 JS BIBLIOTHEEK-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+
+
+<script>
+let secretNumber = null;
+let attempts = 0;
+
+// Haal het geheime nummer uit getal.json
+fetch('getal.json')
+    .then(response => response.json())
+    .then(data => {
+        secretNumber = data.secretNumber;
+    })
+    .catch(error => console.log("Fout bij laden JSON:", error));
+
+function checkGuess() {
+    let guessInput = document.getElementById("guess");
+    let guess = parseInt(guessInput.value);
+    let feedback = document.getElementById("feedback");
+    attempts++;
+
+    if (secretNumber === null) {
+        feedback.textContent = "Er is nog geen nummer ingesteld. Ga terug naar de andere pagina!";
+        feedback.className = "text-danger lead";
+        return;
+    }
+
+    if (isNaN(guess) || guess < 1 || guess > 100) {
+        feedback.textContent = "Voer een geldig getal in tussen 1 en 100!";
+        feedback.className = "text-danger lead";
+        guessInput.value = "";
+        return;
+    }
+
+    if (guess < secretNumber) {
+        feedback.textContent = "Te laag! Probeer opnieuw.";
+        feedback.className = "text-warning lead";
+    } else if (guess > secretNumber) {
+        feedback.textContent = "Te hoog! Probeer opnieuw.";
+        feedback.className = "text-warning lead";
+    } else {
+        feedback.textContent = `🎉 Goed geraden! Het nummer was ${secretNumber}. Je deed er ${attempts} pogingen over.`;
+        feedback.className = "text-success lead";
+    }
+}
+</script>
+
+</body>
+</html>

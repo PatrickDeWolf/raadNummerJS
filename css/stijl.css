@@ -1,0 +1,4 @@
+body { padding-top: 50px; }
+#container { max-width: 400px; margin: auto; text-align: center; }
+#game-container { max-width: 400px; margin: auto; text-align: center; }
+.input-lg { text-align: center; }
