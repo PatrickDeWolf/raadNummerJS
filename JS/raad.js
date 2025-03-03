@@ -35,7 +35,24 @@ function checkGuess() {
         feedback.textContent = "Te hoog! Probeer opnieuw.";
         feedback.className = "text-warning lead";
     } else {
-        feedback.textContent = `🎉 Goed geraden! Het nummer was ${secretNumber}. Je deed er ${attempts} pogingen over.`;
+	//stop();
+	//document.getElementById("display").textContent = "0.00";
+	//alert();
+	
+	document.getElementById("display").style.display="none";
+	
+
+	var tijd=document.getElementById("display").textContent;
+	
+	
+	
+        feedback.textContent = `🎉 Goed geraden! Het nummer was ${secretNumber}. 
+		Je deed er ${attempts} pogingen over. 
+		Je deed er ${tijd} seconden over`;
         feedback.className = "text-success lead";
+        document.getElementById("reset").style.display="block";
+        document.getElementById("guess").style.display="none";
+        document.getElementById("knop").style.display="none";
+		
     }
 }
