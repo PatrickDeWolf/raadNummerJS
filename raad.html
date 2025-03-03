@@ -13,8 +13,8 @@
 <body>
 
 	<div id="game-container" class="container">
-		<center><img src="./afbeeldingen/scan.png" id="scan" ></center>
-		<center><span class="timer" id="display">0.00 sec</span></center>
+		<!--<center><img src="./afbeeldingen/scan.png" id="scan" ></center>-->
+		
 
     		<h2 class="text-primary">Raad het Nummer (1 - 100)</h2>
 
@@ -22,10 +22,10 @@
         	<input type="number" id="guess" class="form-control input-lg" placeholder="Voer een nummer in" min="1" max="100">
     		</div>
 
-    		<button class="btn btn-primary btn-lg btn-block" id="knop" onclick="checkGuess(); startKlok();">Gok!</button>
+    		<button class="btn btn-primary btn-lg btn-block" id="knop" onclick="checkGuess();">Gok!</button>
     		<p id="feedback" class="text-info lead" style="margin-top: 20px;"></p>
 
-    		<center><a href="set.html" class="btn btn-link" STYLE='display:none;'>Terug naar nummer kiezen</a></center>	<!-- VERSTOPT -->
+    		<center><a href="set.php" class="btn btn-link" STYLE='display:none;'>Terug naar nummer kiezen</a></center>	<!-- VERSTOPT -->
     		<center><a href="raad.html" class="btn btn-primary" id="reset" >NIEUW SPEL</a></div><center>   		<!-- ENKEL WANNEER GERADEN -->
 	</div>
 
