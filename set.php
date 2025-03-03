@@ -14,7 +14,13 @@
 
 
 
-<div id="container" class="container">
+<div id="game-container" class="container">
+
+	<a href="index.php" class="btn btn-link pull-left"><span class="glyphicon glyphicon-menu-left"></span></a>
+	
+	<button class="btn btn-primary pull-right" STYLE='margin:3px;' onclick='fillRandomNumber()'>
+	<span class="glyphicon glyphicon-refresh"></span> Random</button>
+ 
     <h2 class="text-primary">Speler 1: Kies een Nummer</h2>
 
     <div class="form-group">
@@ -25,6 +31,7 @@
     <p id="message" class="text-info lead" style="margin-top: 20px;"></p>
 
     <a href="raad.html" class="btn btn-link">Ga naar Raad het Nummer</a>
+	
 </div>
 
 
@@ -37,8 +44,12 @@
 <!-- eigen code in JS map. Deze stuurt het getal naar update.php dat in de getal.json het getal opschrijft-->
 <script src="./JS/set.js"></script>
 
-
-
+<script>
+function fillRandomNumber() {
+    const randomNumber = Math.floor(Math.random() * 100) + 1; // Generates a number between 1 and 100
+    document.getElementById('chosenNumber').value = randomNumber;
+}
+</script>
 
 
 </body>
