@@ -1,4 +1,66 @@
-body { padding-top: 50px; }
-#container { max-width: 400px; margin: auto; text-align: center; }
-#game-container { max-width: 400px; margin: auto; text-align: center; }
-.input-lg { text-align: center; }
+  /* Voorkomt dat de pagina kan scrollen */
+html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Voorkomt scrollen op de hele pagina */
+}
+
+/* Achtergrondafbeelding over het hele scherm */
+body {
+            background: url('https://lupotec.be/raad/afbeeldingen/ik.png') no-repeat center center fixed;
+            background-size: cover;
+}
+
+#guess, #knop{
+	border-radius:20px;
+}
+		
+#game-container {
+	max-height: 100%; /* Voorkomt dat het buiten het scherm gaat */
+	overflow-y: auto; /* Alleen scrollbaar als nodig */
+	text-align: center;
+	margin-left:5vw;	
+	margin-right:5vw;
+	margin-top:15vh;
+	background-color: rgba(0, 255, 183, 0.6);  
+	border-radius:20px;   
+}
+
+#scan{
+	display:none;
+	max-width: 150px;
+	margin-bottom:5px; 
+}
+
+@media (min-width: 920px) {
+    #game-container {
+        width: 40vw; /* Verklein de breedte naar 50% van de viewportbreedte */
+        margin-left: auto;
+        margin-right: auto;
+    }
+	#scan{
+	display:block;
+	}
+}
+
+
+#reset{
+	display:none; 
+	border-radius:20px; 
+	margin-bottom:5px;
+}
+
+.timer {
+	font-size: 2em;
+	background-color: transparent; 
+	padding: 10px;
+	display: inline-block;
+	min-width: 100px;
+}
+		
+#feedback{
+	color:black; 
+	font-size:20px;
+	font-weight: bold;
+}
